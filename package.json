@@ -1,0 +1,27 @@
+{
+  "name": "imgsearcher",
+  "version": "1.0.0",
+  "description": "search image by keyword",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.3",
+	"ejs": "~1.0.0",
+	"morgan": "~1.0.0",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Victor Tang",
+  "license": "ISC",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:imgsearcher.git"
+  }
+}
