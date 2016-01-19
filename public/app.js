@@ -1,11 +1,10 @@
 (function() {
     //start of function
-  var app = angular.module('urlshortener', []);
+  var app = angular.module('imgsearcher', []);
 
 app.controller('MainCtrl', ['$scope', '$http', '$window', function($scope, $http, $window){
-	$scope.shortURL;
-	$scope.generateShort = function(){
-		$http.post($window.location.href+"new/http://"+$scope.userInputURL).success(function(data){$scope.shortURL=data;}).error(function(err){throw err;});
+	$scope.imgSearch = function(){
+		//post, -> async use yahoo search and return
 	};
 }]);//end of controller
   //end of function

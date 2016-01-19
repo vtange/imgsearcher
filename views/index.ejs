@@ -7,14 +7,12 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </head>
-<body data-ng-app="urlshortener" data-ng-controller="MainCtrl">
+<body data-ng-app="imgsearcher" data-ng-controller="MainCtrl">
   <div class="content centered" style="top:30%">
-	  <form data-ng-submit="generateShort()">
-	  	<div>http://</div><input type="text" class="searchr" data-ng-model="userInputURL" placeholder="URL here">
+	  <form data-ng-submit="imgSearch()">
+	  	<input type="text" class="searchr" data-ng-model="userInputKeywords" placeholder="URL here">
 	  </form>
-	  <div data-ng-show="shortURL" class="rounded-white-box">{{shortURL}}</div>
-      
-      
+
       
       
   </div>

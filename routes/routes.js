@@ -9,13 +9,14 @@ module.exports = function(app) {
     });
 	app.get('/api/imagesearch/:keywords', function(req, res){
 		var result = {};
-		
+		//do img search API
+		//store search keywords, drop 11th if 10+
 		
 		res.send(JSON.stringify(result))
 	});
 	app.get('/api/latest/imagesearch/:keywords', function(req, res){
 		var result = {};
-		
+		//return search keywords
 		
 		res.send(JSON.stringify(result))
 	});
