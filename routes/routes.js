@@ -8,7 +8,10 @@ module.exports = function(app) {
         res.render('index.ejs'); // load the index.ejs file
     });
 	app.get('/api/imagesearch/:keywords', function(req, res){
-		var result = {};
+		var result = {
+			"params": req.params,
+			"query": req.query
+		};
 		//do img search API
 		//store search keywords, drop 11th if 10+
 		
