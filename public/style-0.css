@@ -79,9 +79,8 @@ ul{
 	border:1px solid white;
 }
 .searchr{
-	padding:10px 10px 10px 0px;
-	border-bottom-right-radius: 10px;
-	border-top-right-radius: 10px;
+	padding:10px 10px 10px 10px;
+	border-radius: 10px;
 	width:40%;
 }
 .rounded-white-box{
