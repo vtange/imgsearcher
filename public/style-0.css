@@ -73,26 +73,23 @@ ul{
 }
 
 /* CUSTOM */
-.searchr, form div{
+.gallery{
+	display:inline-flex;
+  	flex-wrap: wrap;
+}
+.searchr{
 	display:inline-block;
 	vertical-align: text-top;
 	border:1px solid white;
-}
-.searchr{
 	padding:10px 10px 10px 10px;
 	border-radius: 10px;
 	width:40%;
+	transition: all 0.5s ease-in-out; 
 }
 .rounded-white-box{
-	margin:40px;
+	display:inline-flex;
+	margin:10px;
 	padding:20px;
 	background-color:rgba(255,255,255,0.3);
 	border-radius:10px;
-}
-form div{
-	padding:10px 0px 10px 10px;
-	line-height: 1em;
-	border-bottom-left-radius: 10px;
-	border-top-left-radius: 10px;
-	background-color:white;
 }

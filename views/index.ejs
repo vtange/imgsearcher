@@ -8,11 +8,11 @@
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body data-ng-app="imgsearcher" data-ng-controller="MainCtrl">
-  <div class="content centered" style="top:30%">
+  <div class="content centered" data-ng-style="barHeight()">
 	  <form data-ng-submit="imgSearch()">
 	  	<input type="text" class="searchr" data-ng-model="userInputKeywords" placeholder="Search images">
 	  </form>
-
+	  <div class="gallery" data-ng-if="images"><div data-ng-repeat="image in images"><div class="rounded-white-box"><img data-ng-src="{{image.Thumbnail.MediaUrl}}"/></div></div></div>
       
       
   </div>

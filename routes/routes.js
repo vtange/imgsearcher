@@ -37,6 +37,20 @@ function searchBing(query, page, res) {
 		}
 		app.lastSearch.push(req.params.keywords)
 	});
+	app.post('/api/imagesearch/:keywords', function(req, res){
+		var result = {
+			"params": req.params,
+			"page": req.query.page
+		};
+		//do img search API
+		//store search keywords, drop 11th if 10+
+		result = searchBing(req.params.keywords, req.query.page, res)
+		if(!app.lastSearch){
+			//init app.lastSearch
+			app.lastSearch = [];
+		}
+		app.lastSearch.push(req.params.keywords)
+	});
 	app.get('/api/latest/imagesearch', function(req, res){
 		var result = {};
 		if(!app.lastSearch){
