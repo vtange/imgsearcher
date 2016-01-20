@@ -24,12 +24,8 @@ function searchBing(query, page, res) {
         res.render('index.ejs'); // load the index.ejs file
     });
 	app.get('/api/imagesearch/:keywords', function(req, res){
-		var result = {
-			"params": req.params,
-			"page": req.query.page
-		};
 		//do img search API
-		//store search keywords, drop 11th if 10+
+		//store search keywords
 		result = searchBing(req.params.keywords, req.query.page, res)
 		if(!app.lastSearch){
 			//init app.lastSearch
@@ -38,12 +34,8 @@ function searchBing(query, page, res) {
 		app.lastSearch.push(req.params.keywords)
 	});
 	app.post('/api/imagesearch/:keywords', function(req, res){
-		var result = {
-			"params": req.params,
-			"page": req.query.page
-		};
 		//do img search API
-		//store search keywords, drop 11th if 10+
+		//store search keywords
 		result = searchBing(req.params.keywords, req.query.page, res)
 		if(!app.lastSearch){
 			//init app.lastSearch
