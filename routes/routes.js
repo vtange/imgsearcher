@@ -17,6 +17,13 @@ function searchBing(query, page, res) {
 		res.send(arr.slice(0,10));
 	});
 }
+function storeSearch(item){
+	if(!app.lastSearch){
+		//init app.lastSearch
+		app.lastSearch = [];
+	}
+	app.lastSearch.push(item)
+}
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
@@ -27,21 +34,13 @@ function searchBing(query, page, res) {
 		//do img search API
 		//store search keywords
 		result = searchBing(req.params.keywords, req.query.page, res)
-		if(!app.lastSearch){
-			//init app.lastSearch
-			app.lastSearch = [];
-		}
-		app.lastSearch.push(req.params.keywords)
+		storeSearch(req.params.keywords);
 	});
 	app.post('/api/imagesearch/:keywords', function(req, res){
 		//do img search API
 		//store search keywords
 		result = searchBing(req.params.keywords, req.query.page, res)
-		if(!app.lastSearch){
-			//init app.lastSearch
-			app.lastSearch = [];
-		}
-		app.lastSearch.push(req.params.keywords)
+		storeSearch(req.params.keywords);
 	});
 	app.get('/api/latest/imagesearch', function(req, res){
 		var result = {};
