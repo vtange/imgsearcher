@@ -14,18 +14,9 @@ function searchBing(query, page, res) {
 	deferred.promise.then(function (value) {
 		value = JSON.parse(value);
 		var arr = value.d.results;
-		arr = chunk(arr,10);
-		res.send(arr);
+		res.send(arr.slice(0,10));
 	});
 }
-function chunk(arr, limit) {
-  var newarr = []
-  for (var i = 0; i < limit; i++){
-	   newarr.push(arr[i]);
-  }
-  return newarr;
-}
-
 	app.lastSearch = [];
     // =====================================
     // HOME PAGE (with login links) ========
