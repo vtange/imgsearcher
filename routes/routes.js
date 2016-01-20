@@ -3,7 +3,7 @@ var Q = require('q');
 // routes.js
 module.exports = function(app) {
 	
-function searchBing(query, res) {
+function searchBing(query, page, res) {
     var request=require('request');
     var url="https://api.datamarket.azure.com/Bing/Search/v1/Image?Query='"+query+"'&$format=JSON";
     var key="gpfMNHL5VVhAnl0FaDb90ykr8rMRNYUgYs6f/uK9xiU";
@@ -13,11 +13,20 @@ function searchBing(query, res) {
     })
 	deferred.promise.then(function (value) {
 		value = JSON.parse(value);
-		console.log(typeof value)
-		res.send(value);
+		var arr = value.d.results;
+		arr = chunk(arr,page);
+		res.send(arr);
 	});
 }
-	
+function chunk(arr, page) {
+  var newarr = []
+  for (var i = (page-1)*10; i < ((page-1)*10)+10; i++){
+	   newarr.push(arr[i]);
+  }
+  return newarr;
+}
+
+	app.lastSearch = [];
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
@@ -27,17 +36,17 @@ function searchBing(query, res) {
 	app.get('/api/imagesearch/:keywords', function(req, res){
 		var result = {
 			"params": req.params,
-			"query": req.query
+			"page": req.query.page
 		};
-		var dude = "dude";
 		//do img search API
 		//store search keywords, drop 11th if 10+
-		result = searchBing(req.params.keywords, res)
+		result = searchBing(req.params.keywords, req.query.page, res)
+		app.lastSearch.push(req.params.keywords)
 	});
 	app.get('/api/latest/imagesearch/:keywords', function(req, res){
 		var result = {};
 		//return search keywords
 		
-		res.send(JSON.stringify(result))
+		res.send(app.lastSearch)
 	});
 }
