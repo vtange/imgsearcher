@@ -12,6 +12,8 @@ function searchBing(query, res) {
 		deferred.resolve(result.body);
     })
 	deferred.promise.then(function (value) {
+		value = JSON.parse(value);
+		console.log(typeof value)
 		res.send(value);
 	});
 }
