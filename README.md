@@ -12,6 +12,7 @@ Storing recent searches in a server side variable.
 ### Details
 #### CSS
  - Using flexbox to display results in gallery format
+
 #### JS
  - How to use Bing API with pages and all.
  - How to use a Promise with 'Q'. respond for GET and POST request after Promise is resolved
