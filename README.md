@@ -2,11 +2,18 @@
 
 Client sends keyword, Server performs Bing Search on behalf of Client and returns to Client the results.
 
-# Takeaways
+## Tech
 
- - CSS => Using flexbox to display results in gallery format
+Bing Image API (request + q), Express, Angular
+
+## Niceties
+Storing recent searches in a server side variable.
+
+### Details
+#### CSS
+ - Using flexbox to display results in gallery format
+#### JS
  - How to use Bing API with pages and all.
- - Storing recent searches in a server side variable.
  - How to use a Promise with 'Q'. respond for GET and POST request after Promise is resolved
  
 ```
